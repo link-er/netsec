@@ -14,7 +14,7 @@ int main(int argc , char *argv[])
         printf("Could not create socket");
     }
 
-    server.sin_addr.s_addr = inet_addr("zeus.cs.uni-bonn.de");//ip address
+    server.sin_addr.s_addr = inet_addr("detmolder.cs.uni-bonn.de");//ip address
     server.sin_family = AF_INET;
     server.sin_port = htons(7331);//port
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/socket.h>
 #include <arpa/inet.h> //inet_addr
+#include "codeninja.h"
 
 int main(int argc , char *argv[])
 {
@@ -14,7 +15,7 @@ int main(int argc , char *argv[])
         printf("Could not create socket");
     }
 
-    server.sin_addr.s_addr = inet_addr("detmolder.cs.uni-bonn.de");//ip address
+    server.sin_addr.s_addr = inet_addr("131.220.6.76");//ip address
     server.sin_family = AF_INET;
     server.sin_port = htons(7331);//port
 
@@ -28,13 +29,13 @@ int main(int argc , char *argv[])
     puts("Connected");
 
     //Send some data
-    message = "GET / HTTP/1.1\r\n\r\n";
+    /*message = "GET / HTTP/1.1\r\n\r\n";
     if( send(socket_desc , message , sizeof(message) , 0) < 0)
     {
         puts("Send failed");
         return 1;
     }
-    puts("Data Send\n");
+    puts("Data Send\n");*/
 
     //Receive a reply from the server
     if( recv(socket_desc, server_reply , 2000 , 0) < 0)
@@ -42,7 +43,13 @@ int main(int argc , char *argv[])
         puts("recv failed");
     }
     puts("Reply received\n");
-    puts(server_reply);
+    //puts(server_reply);
+
+    int secret_length = 0;
+    u_char *secret = decrypt((u_char *)server_reply, sizeof(server_reply), &secret_length);
+
+    puts("Reply decoded\n");
+    printf("%s \n %d", secret, secret_length);
 
     return 0;
 }

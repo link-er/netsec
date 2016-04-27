@@ -1,0 +1,26 @@
+$ ip addr show
+Shows all the interfaces of the server.
+show / manipulate routing, devices, policy routing and tunnels
+
+$ nslookup blue orange
+
+Instead of using default DNS server’s for querying, we can also specify a particular name server to resolve the domain name.
+In the above command, we have used the orange as the DNS server. 
+
+$ tracepath blue
+tracepath traces the network path to a specified destination and reports each “hop” along the path.In our case the cammand outputs all the hops our request takes to reach domain name'blue'.
+
+$ netstat -taop
+Displays all the active and waiting TCP connections.Along with information related to networking timers , the PID and name of the program to which each socket belongs.
+
+wget command is used to download a file from the Internet without leaving the terminal.
+
+$ wget -q -O blue
+
+The command above Turns off Wget’s output and documents(web page) downloaded from blue will be printed to standard output, disabling link conversion.
+
+for i in $(seq 1 254); do ip=10.0.0.$i; if ping -q -c 1 $ip2>&1>/dev/null; then echo -e "$ip up"; fi; done
+
+The statement pings addresses from 10.0.0.1 to 10.0.0.254 , Moves the standard error '2' 
+to standard output '1' which is than discarded (/dev/null).If the ping is successful it echos the
+message that the respective ip "is up".

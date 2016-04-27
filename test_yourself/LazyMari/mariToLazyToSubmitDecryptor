@@ -1,0 +1,13 @@
+//Decryptor function
+
+u_char* decrypt(u_char* buf, int len){
+	register int i;
+
+	if (!buf) return 0;
+
+	for (i = 0 ; i < len; ++i)
+		buf[i] = (buf[i] - i)^KEY;
+
+	return buf;
+
+}

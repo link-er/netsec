@@ -21,7 +21,7 @@ For example, own ssh connection can be seen -
 tcp        0      0 10.1.1.2:ssh            10.1.1.1:54102          ESTABLISHED -                keepalive (6097.52/0/0)
 
 wget command is used to download a file from the Internet without leaving the terminal.
-$ wget -q -O blue
+$ wget -q -O - blue
 The command above Turns off Wget’s output and documents (web page) downloaded from server 'blue' will be printed to standard output, disabling link conversion.
 
 for i in $(seq 1 254); do ip=10.0.0.$i; if ping -q -c 1 $ip 2>&1>/dev/null; then echo -e "$ip up"; fi; done

@@ -1,0 +1,35 @@
+\documentclass{article}
+\title{Assignment 1}
+\author{Abbas Khan , Mariya Rybalka , Linara Adilova}
+\begin{document}
+    \maketitle 
+    \newpage
+         \section*{Task 2.1 (theoretical): glibc exploit}
+    GNU C Library glibc, is a library of commonly-used functions for software written in the C language to run in Linux. Its "getaddrinfo()" function is used by the client side DNS resolver, a service that translates human-friendly websites names into computer-friendly network addresses.
+
+when making a DNS request, getaddrinfo() allocates 2048 bytes of memory for the answer, but does not check that the answer it receives fits in that buffer. The buffer overflow occurs in the function send{\_}dg (UDP) and send{\_}vc (TCP) for the NSS module libnss{\_}dns when calling getaddrinfo with AF{\_}UNSPEC family and in some cases also with AF{\_}INET6 before the fix in
+commit 8479f23a
+
+A malicious DNS server or a man-in-the-middle attacker could provide a DNS answer that is larger than 2048 bytes, overflowing the buffer and potentially allowing the attacker to execute malicious commands.
+	  \section*{NX(no execute)}
+AMD`s NX bit, which stands for no execute, is a technology used in CPU`s to separate memory areas
+for use by code and data.If the memory section has the NX attribute, this means that no processor instructions can be executed there.i.e An attacker who launches a buffer overflow attack to change
+the "return address" to point to his malware code stored in the data area of the memory will be 
+defeated by a set NX attribute on the respective memory because it will not allow code in the
+memory area to be executed. 
+	 \section*{Address space layout randomization (ASLR)}
+Address space layout randomization (ASLR) is a computer security technique involved in protection from buffer overflow attacks. In order to prevent an attacker from reliably jumping to, for example, a particular exploited function in memory, ASLR randomly arranges the address space positions of key data areas of a process, including the base of the executable and the positions of the stack, heap and libraries.i.e In case of buffer overflows the return addresses were over-
+written with addresses that were known to be stable.
+However, when an application has ASLR enabled on its binary, attempts to redirect execution flow
+into stack-based shellcode via a hard-coded address is likely to fail,because the location in 
+memory of the stack buffer in question will be randomized, and guessing it would be potluck.
+
+\newpage
+	\section*{Task 2.3 (practical): Website Login credentials}
+htpasswd is used to create and update the flat-files used to store usernames and password for basic authentication of HTTP users.htpasswd encrypts passwords using either bcrypt, a version of MD5 modified for Apache, SHA1, or the system's crypt() routine. Files managed by htpasswd may contain a mixture of different encoding types of passwords; some user records may have bcrypt or MD5-encrypted passwords while others in the same file may have passwords encrypted with crypt().
+
+The format of file is username:encrypted password.The result of MD5 encryption has following format.
+"{\$}apr1{\$}" + the result of an Apache-specific algorithm using an iterated (1,000 times) MD5 digest of various combinations of a random 32-bit salt and the password.In our case the method of encryption used was MD5 as indicated by {\$}ap1{\$} at the start.The salt for an MD5 password is between {\$}apr1{\$} and the following {\$}.In our case the salt was "/pE9u4cQ". 
+\end{document} 
+\grid
+\grid

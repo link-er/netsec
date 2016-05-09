@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \title{Assignment 2}
 \author{Abbas Khan , Mariya Rybalka , Linara Adilova}
@@ -96,6 +97,29 @@ Increase of $n$ (e.g. with respect to time $t$) will cause faster growth of $NUM
 \end{itemize}
 And we know that exponent grows faster than polynomial.
 
-
-
+\section*{Task 2.5 (theoretical): PCAP Analysis 1}
+\begin{itemize}
+\item trace file contains capture of packages traveling over the network
+\item the target is DB, used by web application "Dumn Vulnerable Web App" on host 192.168.10.10 ("http://vulnerabilities/sqli") (attacker (192.168.10.1) and attacked host are in the same LAN)
+\item attacker commits SQL injection. Steps:
+\begin{enumerate}
+\item gets web app html page (packages: 4-8)
+\item tries to get $id=0$ using form (form's $action=GET$), gets nothing (packages: 10-13)
+\item tries to get $id=1$, succeeds (packages: 15-18)
+\item gets list of all users by submitting to the form an expression that will be true for all the users: GET ... ?id=1 or 1=1 (packages: 27-31)
+\item tries to write sql injection using \textit {union} and \textit{select}, fails and get some hints from error message in response how to proceed further (packages: 40-42) 
+\item rewrites sql injection which still do not give any useful results but shows itself as correct one (packages: 51-55)
+\item rewrites sql injection from previous step in order to access field \textit{pass}, fails as this field does not exist (packages: 64-66)
+\item gets with sqli names of table columns, correct one is \textit{password} (packages: 75-79)
+\item rewrites sqli from previous steps to obtain \textit{surname:password} combinations (packages: 88-92)
+\item succeeds (packages: 92)
+\end{enumerate}
+\item form does not have any input field checks that can prevent user from submitting via form some malicious scripts. Also, escape characters are filtered incorrectly or not filtered at all.
+\item attacker gets user-names and passwords combinations, and most probably will use obtained data for further malicious actions, e.g. corruption of users' personal data.
+\item in general it was successful. Some of requests did not give proper result because of inappropriate SQL syntax. But on the next steps attacker corrected his previous mistakes.
+\item links:\\
+\url{https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160203-ucm}\\
+\url{http://seclists.org/fulldisclosure/2016/Apr/5}
+\item input from the user can be checked with respect to length and content, for example, using Javascript regular expressions. Also some escape characters filter should be provided.
+\end{itemize}
 \end{document} 

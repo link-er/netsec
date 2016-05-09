@@ -75,5 +75,27 @@ I would say that password is "weak" if a person with some amount of logic can co
 
 \item Nope =)
 \end{itemize}
+\subsection*{b) Brute-Force Attacks}
+Brute-Force attack is based on guessing as well as dictionary attack. However, it tries \textit{all the possible combinations}. So, if we have
+\begin{itemize}
+\item $n$ - password length
+\item $U$ - set of uppercase letters
+\item $L$ - set of lowercase letters
+\item $D$ - set of digits
+\item $S$ - set of special characters
+\end{itemize}
+In worst case password will contain elements from all the sets:
+$$P=U \cup L \cup D \cup S$$
+As all sets are disjunct (their intersection is $\emptyset$):
+$$|P|=|U|+|L|+|D|+|S|$$
+then in worst case number of possible passwords is $$NUM\_OF\_PSSWDS=|P|^n$$
+Increase of $n$ (e.g. with respect to time $t$) will cause faster growth of $NUM\_OF\_PSSWDS$ then increase of $|P|$, because
+\begin{itemize}
+\item if $P$ fixed, than $NUM\_OF\_PSSWDS=const^{n(t)}$ - exponential growth
+\item if $n$ fixed, than $NUM\_OF\_PSSWDS=|P(t)|^{const}$ - polynomial growth 
+\end{itemize}
+And we know that exponent grows faster than polynomial.
+
+
 
 \end{document} 

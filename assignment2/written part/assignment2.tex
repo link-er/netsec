@@ -3,7 +3,7 @@
 \usepackage{hyperref}
 
 \title{Assignment 2}
-\author{Abbas Khan , Mariya Rybalka , Linara Adilova}
+\author{Abbas Khan , Mariia Rybalka , Linara Adilova}
 \begin{document}
 \maketitle 
     
@@ -100,7 +100,7 @@ And we know that exponent grows faster than polynomial.
 \section*{Task 2.5 (theoretical): PCAP Analysis 1}
 \begin{itemize}
 \item trace file contains capture of packages traveling over the network
-\item the target is DB, used by web application "Dumn Vulnerable Web App" on host 192.168.10.10 ("http://vulnerabilities/sqli") (attacker (192.168.10.1) and attacked host are in the same LAN)
+\item exploit vector: SQL Injection. The target is DB, used by web application "Dumn Vulnerable Web App" on host 192.168.10.10 ("http://vulnerabilities/sqli") (attacker (192.168.10.1) and attacked host are in the same LAN)
 \item attacker commits SQL injection. Steps:
 \begin{enumerate}
 \item gets web app html page (packages: 4-8)
@@ -114,12 +114,22 @@ And we know that exponent grows faster than polynomial.
 \item rewrites sqli from previous steps to obtain \textit{surname:password} combinations (packages: 88-92)
 \item succeeds (packages: 92)
 \end{enumerate}
-\item form does not have any input field checks that can prevent user from submitting via form some malicious scripts. Also, escape characters are filtered incorrectly or not filtered at all.
-\item attacker gets user-names and passwords combinations, and most probably will use obtained data for further malicious actions, e.g. corruption of users' personal data.
+\item exploit vector is "SQL injection". Form does not have any input field validation that could prevent user from submitting via form some malicious scripts. Also, escape characters are filtered incorrectly or not filtered at all.
+\item yes, system is fully compromised: attacker gets user-names and passwords combinations, and most probably will use obtained data for further malicious actions, e.g. corruption of users' personal data.
 \item in general it was successful. Some of requests did not give proper result because of inappropriate SQL syntax. But on the next steps attacker corrected his previous mistakes.
-\item links:\\
-\url{https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160203-ucm}\\
+\item a lot of examples of SQL Injections attacks can be found in the Internet. Here are some the most recent and interesing ones: \\
+a vulnerability in the Cisco Unified Communications Manager SQL database interface, which can allow the attacker to determine if some entries are present in Cisco databases. No software updates are made, issue is still not fixed.\\
+\url{https://tools.cisco.com/security/center/content/}
+\\
+\url{CiscoSecurityAdvisory/cisco-sa-20160203-ucm}\\
+SQL Injection Vulnerability in DotCms v3.3, which if successful will allow to access sensitive information in dotcms database. (Dotcms - J2EE/Java based web content manegement system)\\
 \url{http://seclists.org/fulldisclosure/2016/Apr/5}
-\item input from the user can be checked with respect to length and content, for example, using Javascript regular expressions. Also some escape characters filter should be provided.
+\item use of different input validation technics can help to prevent SQL Injection attacks, for example:
+\begin{itemize}
+\item \textbf{prepared statements} make programmers to predefine all SQL code that can be used. All the user input is treated like simple data and can never be executed.
+\item \textbf{stored procedures} is almost the same approach. The only difference that code for the procedures is defined and stored in DB itself, and is called from the application.
+\item \textbf{escaping all user supplied input} is reached by using character escaping schemes specific to certain kinds of queries. 
+\end{itemize}
+cite: \url{https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet} \\
 \end{itemize}
 \end{document} 

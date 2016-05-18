@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Assignment 3}
+\author{Abbas Khan , Mariia Rybalka , Linara Adilova}
+\begin{document}
+\maketitle 
+    
+\section*{Task 3.1 (theoretical): Authentication Beyond Passwords}
+As passwords based authentication showed itself to be not very sufficient, taking into account all the possible attacks and users choosing weak passwords, some alternatives are finding their way.
+
+\subsection*{ Biometrics measures }
+One of the ways to identify user is to check his(her) biological unique data, such as iris, heartbeat, ear form, fingerprint, etc. There are already a lot of examples of using this technique, among most well known can be named iPhone, that uses fingerprint in order to unlock the device. Main advantage of this way of authentication, that user does not have to remember any information - he just uses his body as a password. Disadvantage - this method is not 100 percent reliable. For example, already in cold weather iPhone unlocker sometimes does not work, because of slight changes in fingerprint.
+
+\subsection*{ A personal USB key }
+One more way of authentication without password is using USB stick as devise with unique information, that identifies user. In order to use service or software user has to plug in his personal USB and then everything will be activated.
+\\
+\cite{altern} As an example Google can be named. They are providing users with an USB stick, that will intercat with Chrome and load all the personal data - no more typing in passwords. According to their information, communication between the browser and the key generate no information that could be used to impersonate the user if intercepted.
+\\
+Advantage once again the same - no need to remember anything. Disadvantage - USB stick can be lost, stolen and there will be no possibility to login (like passwords have function "restore").
+
+\subsection*{ A virtual 'token' }
+\cite{altern} This method is close to the personal USB stick, but here it is an information, personally generated for user. In order to login user has to use his smartphone with special application, that will perform the authentication. Example of implementation is in app Clef (\url{https://getclef.com/}), that logs users in by displaying a temporarily-generated, unique image on the phone screen. Users simply hold the image up to webcam to authenticate it. Advantage - no need to generate or remember passwords. Also, not like USB stick, the image can't be stolen, as each one is randomly generated and lasts for less than thirty seconds. Disadvantage - user has to have smartphone with camera, that is not always hold.
+
+\subsection*{ Two-factor authentication }
+The idea of two-factor authentication is two use additional channel for authorizing user, besides simple paassword. In order to be logged in, user has to type in password and, for example, eneter a code, that he recieves on his phone or use some additional application to finish identification process. Twitter, Google, LinkedIn and Dropbox, as well as many others now offer the service, as an optional 'extra' security add-on. 
+\\
+As an advantage, but also disadvantage can be seen the necessity of additional actions. Like for user, who wants to log in, he will need a smartphone or he will have to use some additional service, browser, email, etc. For attackers the same thing will harden possibility of attack a lot. It is not enough now only to break a password - one has also to find a way to go through the second stage. For instance, a recent attack against World of Warcraft involved criminals building a fake replica of the popular add-on site Curse, where every download was laced with malware. \cite{twofact}
+
+\section*{Task 3.2 (theoretical): Reconnaissance in the SecLab}
+together
+
+\section*{Task 3.3 (practical): DNS sniffing}
+Mariia
+
+\section*{Task 3.4 (practical): Hash Collisions}
+Abbas
+
+\section*{Task 3.5 (theoretical): Designing Asymmetric Encryption Schemes}
+\subsection*{Part (a)}
+This method is very similar to the Diffie-Hellman scheme for key generation. It is not secured against man-in-the-middle attack - in this case for example postman. He can simply add his padlock on Bob's box and send it back to Bob and make a new box with his padlock and send it to Alice. Bob then will unlock his and send it back - postman has access to the box. 
+\\
+For cryptographic means this method will have same problems. Also it is possible, if for example both Bob and Alice will user ROT13 as their method for crypting, after second application, there will be plain text already.
+\\
+Look at three questions of security?
+
+\subsection*{Part (b)}
+Here password can be stolen, as if the same man-in-the-middle will apply plain-text to the Bob's message, he will get his password. That is why different random keys can help.
+\\
+No confidentiality, no integrity - as man-in-the-middle gets the plaintext on the second step and anybody can send the message, authority cannot be checked. Even more - Alice can get the Bob's key and use it later.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{altern}
+  What are the alternatives to passwords?
+  \emph{\url{http://www.welivesecurity.com/2015/02/05/alternatives-passwords/}}
+  WeLiveSecurity by ESET
+  
+\bibitem{twofact}
+  Two-factor authentication: What is it ? and why do I need it?
+  \emph{\url{http://www.welivesecurity.com/2015/02/05/alternatives-passwords/}}
+  WeLiveSecurity by ESET
+
+\end{thebibliography}
+
+\end{document} 

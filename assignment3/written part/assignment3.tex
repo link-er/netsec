@@ -32,7 +32,27 @@ As an advantage, but also disadvantage can be seen the necessity of additional a
 together
 
 \section*{Task 3.3 (practical): DNS sniffing}
-Mariia
+\textbf{DNS protocol fields required to spoof a response:}
+\begin{enumerate}
+\item fields, taken from the DNS request:
+\begin{itemize}
+\item \textbf{id} - 2-bytes identifier. Id fields of DNS request and corresponding DNS response should match
+\item \textbf{qd}, question section - contains DNS question records, each include 3 fields: \textit{qname}(human-readable name of the server, e.g. "google.com"), \textit{qtype}(type of query, e.g. $A$ for host records), \textit{qclass}(class of query, e.g. $IN$ for internet addresses). DNS response should contain the same values of \textbf{qd} field, as corresponding DNS request. Also, in \textbf{an} (answer section) field of the response, value of \textit{rrname} should be set to the value of \textit{qname} from \textbf{qd} field of the request.
+\end{itemize}
+\item fields, also required for DNS response spoofing, that are not teken from DNS request:
+\begin{itemize}
+\item \textbf{qr} - 1 bit field, should be set to 1, because value 0 corresponds to DNS request, value 1 to DNS response
+\item \textbf{aa} - authoritative answer - this bit should be set to 1 in DNS response, and specifies that the responding name server is an authority for the domain name in question section
+\item \textbf{qdcount} - (2 byte integer) number of DNS question records in question section, no need to copy it from the DNS request, but it will match anyway if we have corresponding  \textbf{qd} field from the DNS request.
+\item \textbf{ancount} - (2 byte integer) number of DNS resource records in answer section
+\item \textbf{type} and \textbf{rclass} in answer section should be adjusted according with type and class of data in \textbf{rdata} field (which is provided by us)
+\end{itemize}
+\end{enumerate}
+Based on materials from \cite{dnsframe}.
+
+
+
+
 
 \section*{Task 3.4 (practical): Hash Collisions}
 Abbas
@@ -62,6 +82,11 @@ No confidentiality, no integrity - as man-in-the-middle gets the plaintext on th
   Two-factor authentication: What is it ? and why do I need it?
   \emph{\url{http://www.welivesecurity.com/2015/02/05/alternatives-passwords/}}
   WeLiveSecurity by ESET
+
+\bibitem{dnsframe}
+ Fundamentals of Computer Networking: Project 1 Primer: DNS Overview
+ CS4700/CS5700 Fall 2009, 17 September 2009
+ \emph{\url{http://www.ccs.neu.edu/home/amislove/teaching/cs4700/fall09/handouts/project1-primer.pdf}}
 
 \end{thebibliography}
 

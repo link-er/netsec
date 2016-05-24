@@ -52,7 +52,7 @@ This is a beautiful red-yellow-green-white-black-hat bonbon!}
 \item \textbf{id} - 2-bytes identifier. Id fields of DNS request and corresponding DNS response should match
 \item \textbf{qd}, question section - contains DNS question records, each include 3 fields: \textit{qname}(human-readable name of the server, e.g. "google.com"), \textit{qtype}(type of query, e.g. $A$ for host records), \textit{qclass}(class of query, e.g. $IN$ for internet addresses). DNS response should contain the same values of \textbf{qd} field, as corresponding DNS request. Also, in \textbf{an} (answer section) field of the response, value of \textit{rrname} should be set to the value of \textit{qname} from \textbf{qd} field of the request.
 \end{itemize}
-\item fields, also required for DNS response spoofing, that are not teken from DNS request:
+\item fields, also required for DNS response spoofing, that are not taken from DNS request:
 \begin{itemize}
 \item \textbf{qr} - 1 bit field, should be set to 1, because value 0 corresponds to DNS request, value 1 to DNS response
 \item \textbf{aa} - authoritative answer - this bit should be set to 1 in DNS response, and specifies that the responding name server is an authority for the domain name in question section
@@ -62,9 +62,6 @@ This is a beautiful red-yellow-green-white-black-hat bonbon!}
 \end{itemize}
 \end{enumerate}
 Based on materials from \cite{dnsframe}.
-
-\section*{Task 3.4 (practical): Hash Collisions}
-Abbas
 
 \section*{Task 3.5 (theoretical): Designing Asymmetric Encryption Schemes}
 \subsection*{Part (a)}

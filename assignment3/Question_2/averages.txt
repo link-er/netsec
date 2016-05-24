@@ -45,5 +45,3 @@ Average is 14768.2
 965289
 Average is 505440.8
 
-y = np.empty(len(x))
-a.fill(7)

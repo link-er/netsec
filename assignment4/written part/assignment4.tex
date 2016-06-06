@@ -9,29 +9,46 @@
     
 \section*{Task 4.4 (theoretical): TLS Cipher Suites}
 \subsection*{TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256}
-ECDHE - Cipher suites using authenticated ephemeral ECDH key agreement. the client and server will agree on encryption keys using Ephemeral Elliptic Curve Diffie-Hellman. 
-RSA - Cipher suites using RSA key exchange, authentication or either respectively. the client will verify that the key is valid using the RSA algorithm to communications.
-AES128 GCM - cipher suites using 128 bit AES. AES in Galois Counter Mode (GCM). the actual encryption of my web browsing session will be performed
-SHA256 - Ciphersuites using SHA256. the SHA algorithm will be used for securely hashing parts of the TLS messages.
+\cite{tls-ref}
+\\
+In this suite client and server generate pre-master key using Ephemeral Elliptic Curve Diffie-Hellman (ECDHE) and this exchange will be verified using RSA keys. So here RSA is used for Authentication. 
+\\
+Then package exchange will be processed with 128 bit AES in Galois Counter Mode (AES\_128\_GCM). So this method is used for Encryption.
+\\
+And for MAC SHA256 is used. It performs both Integrity and Authentication.
 
+\subsection*{TLS\_RSA\_WITH\_RC4\_128\_MD5}
+Here pre-master key is generated with RSA - authentication part. Then packages are encrypted with 128 bit Rivest Cipher 4 (RC4\_128) - encryption part. And Mac is created with MD5 - integrity and authentication.
+
+\subsection*{Reasons}
+Three reasons why first suite is considered to be more secure than the second one:
 \begin{enumerate}
-\item Authentication: Elliptic curve Diffie-Hellman (ECDH) is an anonymous key agreement protocol that allows two parties, each having an elliptic curve public-private key pair, to establish a shared secret over an insecure channel. This shared secret may be directly used as a key, or to derive another key which can then be used to encrypt subsequent communications using a symmetric key cipher. It is a variant of the Diffie-Hellman protocol using elliptic curve cryptography. Ephemeral keys are temporary and not necessarily authenticated, so if authentication is desired, authenticity assurances must be obtained by other means.
-\item Encryption
-\item Integrity
+\item First suite provides so called Prefect Forward Secrecy (\cite{pfc}). When client and server use RSA to generate pre-master key, they use server's RSA and server's RSA public key is a part of server certificate and stored for a long time. So if it will be compromised all the previous connections (if somebody will record them) can be decrypted. While with ECDHE keys are generated for every connection and forgot after connection is closed. So attacker would have to break the encryption for every connection separately.
+\item RC4 is proved to be insecure with many different vulnerabilities. One of them is described in \cite{rc4-vuln} - statistical weakness, that alows to distinguish between short outputs of RC4 and random strings by analyzing their second bytes. 
+\item MD5 hash function compromised by allowing collisions in the output, i.e. there exist another message, not equal to the initial, that will give the same MD5 value. So, the authors of the paper \cite{md5-coll} showed several practical ways of doing it.
 \end{enumerate}
-
-TLS RSA RC4 128 MD5
-
-\cite{label}
 
 \begin{thebibliography}{9}
 
-\bibitem{label}
-  Not forget
-  \emph{\url{https://en.wikipedia.org/wiki/Hash-based_message_authentication_code}}
-  WeLiveSecurity by ESET
+\bibitem{tls-ref}
+  TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)
+  \emph{\url{https://tools.ietf.org/html/rfc5289}}
   
-  https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman
+\bibitem{pfc}
+  Perfect Forward Secrecy
+  \emph{\url{https://www.perfectforwardsecrecy.com/}}
+  Sponsored by Encryption Chat
+
+\bibitem{md5-coll}
+  A Study of the MD5 Attacks: Insights and Improvements
+  \emph{\url{http://www.cs.colorado.edu/~jrblack/papers/md5e-full.pdf}}
+  J. Black, M.Cochran, T. Highlandy
+  
+\bibitem{rc4-vuln}
+  A Practical Attack on Broadcast RC4
+  \emph{\url{http://saluc.engr.uconn.edu/refs/stream_cipher/mantin01attackRC4.pdf}}
+  Itsik Mantin and Adi Shamir\\
+  Computer Science Department, The Weizmann Institute, Rehovot 76100, Israel
   
 \end{thebibliography}
 

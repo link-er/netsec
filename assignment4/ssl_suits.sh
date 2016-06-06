@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-# OpenSSL requires the port number.
-SERVER='google.com':443
-ciphers=$(openssl ciphers 'ALL:eNULL' | sed -e 's/:/ /g')
+servers='top_sites.txt'
+suites=$(openssl ciphers 'ALL:eNULL')
+suites=${suites//:/ }
 
-echo Obtaining cipher list from $(openssl version).
-
-for cipher in ${ciphers[@]}
+while read -r site
 do
-result=$(echo -n | openssl s_client -cipher "$cipher" -connect $SERVER 2>&1)
-if [[ "$result" =~ ":error:" ]] ; then
-  error=$(echo -n $result | cut -d':' -f6)
- 
-else
-  if [[ "$result" =~ "Cipher is ${cipher}" || "$result" =~ "Cipher    :" ]] ; then
-    echo $cipher
-  else
-    echo UNKNOWN RESPONSE
-    echo $result
+  echo $site
+  for suite in ${suites[@]}
+  do
+  response=$(echo -n | openssl s_client -cipher "$suite" -connect $site:443 2>&1)
+  #echo $response
+  if [[ "$response" =~ ":error:" ]] ; then
+    error="not supported $suite"
+  else 
+    if [[ "$response" =~ "Cipher is ${cipher}" || "$response" =~ "Cipher    :" ]] ; then
+      echo $suite
+      echo $suite >> 'used_suites.txt'
+    fi
   fi
-fi
-done
+  done
+done < "$servers"

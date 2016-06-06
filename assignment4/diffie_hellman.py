@@ -28,28 +28,33 @@ print str(TCP_PORT0) + ' : ' + msg
 p = msg.split(' ')[4]
 g = msg.split(' ')[8]
 print '====================Got prime ' + str(p) + ' and generator ' + str(g)
-my_prime = 3
+print ''
+my_prime = 811
 s1.send(msg)
 
 msg = s1.recv(BUFFER_SIZE)
 print str(TCP_PORT1) + ' : ' + msg
 k1 = msg.split(' ')[-2]
 print '====================Got ' + str(TCP_PORT1) + ' key ' + k1
+print ''
 my_G = (int(g) ** my_prime) % long(p)
 ar = msg.split(' ')
 ar[-2] = str(my_G)
 my_msg = ' '.join(ar)
-print '====================' + my_msg
+print 'Change message====================' + my_msg
+print ''
 
 s0.send(my_msg)
 msg = s0.recv(BUFFER_SIZE)
 print str(TCP_PORT0) + ' : ' + msg
 k0 = msg.split(' ')[-1][0:-2]
 print '====================Got ' + str(TCP_PORT0) + ' key ' + k0
+print ''
 ar = msg.split(' ')
 ar[-1] = str(my_G) + '!'
 my_msg = ' '.join(ar)
-print '====================' + my_msg
+print 'Change number====================' + my_msg
+print ''
 
 s1.send(my_msg)
 msg = s1.recv(BUFFER_SIZE)
@@ -57,27 +62,41 @@ print str(TCP_PORT1) + ' : ' + msg
 s0.send(msg)
 
 my_k1 = (long(k1) ** my_prime) % long(p)
-hash_my_k1 = hashlib.sha512(str(my_k1)).digest()
+hash_my_k1 = hashlib.sha512(str(my_k1)).hexdigest()
 my_k0 = (long(k0) ** my_prime) % long(p)
-hash_my_k0 = hashlib.sha512(str(my_k0)).digest()
+hash_my_k0 = hashlib.sha512(str(my_k0)).hexdigest()
 
 msg = s0.recv(BUFFER_SIZE)
 print str(TCP_PORT0) + ' : ' + msg
-decrypted = xorWord(base64.b64encode(msg), hash_my_k0)
+decrypted = xorWord(base64.b64decode(msg), hash_my_k0)
 print 'Decrypted: ' + decrypted
+print ''
 my_msg = base64.b64encode(xorWord(decrypted, hash_my_k1))
 
 s1.send(my_msg)
 msg = s1.recv(BUFFER_SIZE)
 print str(TCP_PORT1) + ' : ' + msg
+decrypted = xorWord(base64.b64decode(msg), hash_my_k1)
+print 'Decrypted: ' + decrypted
+print ''
+my_msg = base64.b64encode(xorWord(decrypted, hash_my_k0))
 
-
-s0.send(msg)
+s0.send(my_msg)
 msg = s0.recv(BUFFER_SIZE)
 print str(TCP_PORT0) + ' : ' + msg
-s1.send(msg)
+decrypted = xorWord(base64.b64decode(msg), hash_my_k0)
+print 'Decrypted: ' + decrypted
+print ''
+my_msg = base64.b64encode(xorWord(decrypted, hash_my_k1))
+
+s1.send(my_msg)
 msg = s1.recv(BUFFER_SIZE)
 print str(TCP_PORT1) + ' : ' + msg
+decrypted = xorWord(base64.b64decode(msg), hash_my_k1)
+print 'Decrypted: ' + decrypted
+print ''
+my_msg = base64.b64encode(xorWord(decrypted, hash_my_k0))
+
 s0.send(msg)
 msg = s0.recv(BUFFER_SIZE)
 print str(TCP_PORT0) + ' : ' + msg

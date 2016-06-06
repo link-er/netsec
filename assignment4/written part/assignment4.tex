@@ -7,6 +7,27 @@
 \begin{document}
 \maketitle 
     
+\section*{Task 4.1 (practical): DNS spoofing}
+Source code is in file \textbf{MyDNSSpoofer.py}.
+\\
+Response for every group member:
+(add response)
+adilova
+
+\section*{Task 4.2 (theoretical): Message Authentication Code (MAC)}
+Abbas
+
+\section*{Task 4.3 (practical): Diffie-Hellman}
+Exploited - man in the middle (details)
+\\
+Source code is in file \textbf{diffie\_hellman.py}.
+\\
+Decrypted communication:
+\\- Done. Hey, can you tell me the password of your Dridex botnet?
+\\- Haha, you are so evil! Ship me 42 euros! :) Just kidding, it is "s00p4doOPas3cReT".
+\\- No no! I am a whitehat ;)... thanks and bye!
+\\- Bla bla... ;) - bye!
+
 \section*{Task 4.4 (theoretical): TLS Cipher Suites}
 \subsection*{TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256}
 \cite{tls-ref}
@@ -27,6 +48,16 @@ Three reasons why first suite is considered to be more secure than the second on
 \item RC4 is proved to be insecure with many different vulnerabilities. One of them is described in \cite{rc4-vuln} - statistical weakness, that alows to distinguish between short outputs of RC4 and random strings by analyzing their second bytes. 
 \item MD5 hash function compromised by allowing collisions in the output, i.e. there exist another message, not equal to the initial, that will give the same MD5 value. So, the authors of the paper \cite{md5-coll} showed several practical ways of doing it.
 \end{enumerate}
+
+\section*{Task 4.5 (practical): Cipher Suites in the Wild}
+Script is in file \textbf{ssl\_suits.sh}. Used list of top sites from Alexa Top 500 (\textbf{top\_sites.txt}). Checked ciphersuits are from OpenSSL 1.0.2g. Histogram of usage is depicted in Figure \ref{fig:hist}. Also attached as file \textbf{histogram-suits.png} because of bad readability. Script used for drawing is in file \textbf{ssl\_suites\_hyst.py}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{histogram-suits.png}
+    \caption{Histogram of usage of TLS cipher suits}
+    \label{fig:hist}
+\end{figure}
 
 \begin{thebibliography}{9}
 

@@ -1,0 +1,247 @@
+Nmap scan report for 10.0.0.5
+Host is up (0.00044s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.0p1 Debian 4+deb7u2 (protocol 2.0)
+| ssh-hostkey:
+|   1024 bb:60:44:16:01:5d:70:48:b5:7a:2e:bf:98:2e:44:9a (DSA)
+|   2048 2c:04:bb:1a:65:bb:2e:f3:84:d8:34:47:25:dc:de:35 (RSA)
+|_  256 e0:7f:d5:74:aa:67:11:23:20:9e:b3:af:72:19:15:dd (ECDSA)
+MAC Address: 08:00:27:FD:A8:2B (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.4
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.44 ms 10.0.0.5
+
+Nmap scan report for 10.0.0.10
+Host is up (0.00047s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.0p1 Debian 4+deb7u2 (protocol 2.0)
+| ssh-hostkey:
+|   1024 bb:60:44:16:01:5d:70:48:b5:7a:2e:bf:98:2e:44:9a (DSA)
+|   2048 2c:04:bb:1a:65:bb:2e:f3:84:d8:34:47:25:dc:de:35 (RSA)
+|_  256 e0:7f:d5:74:aa:67:11:23:20:9e:b3:af:72:19:15:dd (ECDSA)
+53/tcp open  domain  MaraDNS
+MAC Address: 08:00:27:0C:2E:D1 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.4
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.47 ms 10.0.0.10
+
+Nmap scan report for 10.0.0.11
+Host is up (0.00044s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 6.6.1_hpn13v11 (FreeBSD 20140420; protocol 2.0)
+| ssh-hostkey:
+|   1024 e4:81:b8:de:ee:69:73:55:35:d8:7b:95:cf:16:f7:be (DSA)
+|   2048 54:b3:a3:26:95:99:c1:ab:b2:ff:8a:b4:21:a8:19:d1 (RSA)
+|_  256 15:d4:e3:de:ce:a6:5b:58:c1:52:50:7a:22:cf:73:70 (ECDSA)
+5432/tcp open  postgresql PostgreSQL DB
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5432-TCP:V=7.12%I=7%D=5/20%Time=573F5D16%P=x86_64-unknown-linux-gnu
+SF:%r(SMBProgNeg,85,"E\0\0\0\x84SFATAL\0C0A000\0Munsupported\x20frontend\x
+SF:20protocol\x2065363\.19778:\x20server\x20supports\x201\.0\x20to\x203\.0
+SF:\0Fpostmaster\.c\0L1843\0RProcessStartupPacket\0\0");
+MAC Address: 08:00:27:9F:B7:5D (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: FreeBSD 7.X|8.X|9.X|10.X
+OS CPE: cpe:/o:freebsd:freebsd:7 cpe:/o:freebsd:freebsd:8 cpe:/o:freebsd:freebsd:9 cpe:/o:freebsd:freebsd:10
+OS details: FreeBSD 7.0-RELEASE-p1 - 10.0-CURRENT
+Network Distance: 1 hop
+Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.44 ms 10.0.0.11
+
+Nmap scan report for 10.0.0.12
+Host is up (0.00051s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE         VERSION
+22/tcp   open  ssh             OpenSSH 6.0p1 Debian 4+deb7u2 (protocol 2.0)
+| ssh-hostkey:
+|   1024 bb:60:44:16:01:5d:70:48:b5:7a:2e:bf:98:2e:44:9a (DSA)
+|   2048 2c:04:bb:1a:65:bb:2e:f3:84:d8:34:47:25:dc:de:35 (RSA)
+|_  256 e0:7f:d5:74:aa:67:11:23:20:9e:b3:af:72:19:15:dd (ECDSA)
+80/tcp   open  http            nginx 1.9.14
+|_http-server-header: nginx/1.9.14
+|_http-title: NetSec 2016
+4242/tcp open  vrml-multi-use?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port4242-TCP:V=7.12%I=7%D=5/20%Time=573F5D10%P=x86_64-unknown-linux-gnu
+SF:%r(NULL,49,"HELO\n201\x20OK\nThis\x20is\x20a\x20beautiful\x20red-yellow
+SF:-green-white-black-hat\x20bonbon!\n")%r(GenericLines,49,"HELO\n201\x20O
+SF:K\nThis\x20is\x20a\x20beautiful\x20red-yellow-green-white-black-hat\x20
+SF:bonbon!\n")%r(GetRequest,49,"HELO\n201\x20OK\nThis\x20is\x20a\x20beauti
+SF:ful\x20red-yellow-green-white-black-hat\x20bonbon!\n")%r(HTTPOptions,49
+SF:,"HELO\n201\x20OK\nThis\x20is\x20a\x20beautiful\x20red-yellow-green-whi
+SF:te-black-hat\x20bonbon!\n")%r(RTSPRequest,49,"HELO\n201\x20OK\nThis\x20
+SF:is\x20a\x20beautiful\x20red-yellow-green-white-black-hat\x20bonbon!\n")
+SF:%r(RPCCheck,49,"HELO\n201\x20OK\nThis\x20is\x20a\x20beautiful\x20red-ye
+SF:llow-green-white-black-hat\x20bonbon!\n");
+MAC Address: 08:00:27:02:B0:27 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.4
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.51 ms 10.0.0.12
+
+Nmap scan report for 10.0.0.13
+Host is up (0.000033s latency).
+Not shown: 998 filtered ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 6.4 (protocol 2.0)
+| ssh-hostkey:
+|   2048 38:99:c3:68:0a:53:f7:25:7a:91:d2:9a:83:f5:80:52 (RSA)
+|_  256 ae:94:c0:ad:d0:57:14:a3:ff:33:03:cb:0a:12:1c:c7 (ECDSA)
+2049/tcp open  nfs     3-4 (RPC #100003)
+MAC Address: 08:00:27:2E:F4:1D (Oracle VirtualBox virtual NIC)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Linux 2.6.X|3.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:3
+OS details: Linux 2.6.32, Linux 2.6.32 - 3.10, Linux 2.6.32 - 3.13
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.03 ms 10.0.0.13
+
+Nmap scan report for 10.0.0.42
+Host is up (0.00045s latency).
+Not shown: 996 closed ports
+PORT    STATE SERVICE      VERSION
+21/tcp  open  ftp          FileZilla ftpd 0.9.34 beta
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows 98 netbios-ssn
+445/tcp open  microsoft-ds Microsoft Windows XP microsoft-ds
+MAC Address: 08:00:27:FD:09:97 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows XP SP2 or SP3
+Network Distance: 1 hop
+Service Info: OSs: Windows, Windows 98, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_98, cpe:/o:microsoft:windows_xp
+
+Host script results:
+|_nbstat: NetBIOS name: NICEGUY, NetBIOS user: <unknown>, NetBIOS MAC: 08:00:27:fd:09:97 (Oracle VirtualBox virtual NIC)
+| smb-os-discovery:
+|   OS: Windows XP (Windows 2000 LAN Manager)
+|   OS CPE: cpe:/o:microsoft:windows_xp::-
+|   Computer name: NiceGuy
+|   NetBIOS computer name: NICEGUY
+|   Workgroup: WORKGROUP
+|_  System time: 2016-05-20T10:53:40-08:00
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smbv2-enabled: Server doesn't support SMBv2 protocol
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.45 ms 10.0.0.42
+
+Nmap scan report for 10.0.0.99
+Host is up (0.00044s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 6.6.1 (protocol 2.0)
+| ssh-hostkey:
+|   1024 a7:f4:3c:34:98:30:20:8a:e6:35:21:8d:7f:cb:72:84 (DSA)
+|_  2048 3c:0b:4e:be:3f:f1:30:47:64:37:8b:d1:dd:7b:12:65 (RSA)
+2222/tcp open  ssh     OpenSSH 6.6.1 (protocol 2.0)
+| ssh-hostkey:
+|   1024 f2:98:ba:9c:80:4e:9e:e0:e4:40:69:9a:9f:c0:43:e5 (DSA)
+|   2048 45:27:ac:c7:01:b9:82:9b:b8:da:54:ce:ef:96:d0:2e (RSA)
+|_  256 2c:ba:27:e0:2f:85:b0:21:3f:2b:c2:45:e9:ed:69:7b (ECDSA)
+MAC Address: 08:00:27:71:50:FA (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.4
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.44 ms 10.0.0.99
+
+Nmap scan report for 10.0.0.1
+Host is up (0.0000090s latency).
+Not shown: 996 closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 1c:3c:a5:6b:97:f5:ef:d5:e9:b9:31:80:29:4d:bc:1a (DSA)
+|   2048 98:8d:b8:6b:7c:94:30:9f:b7:46:e9:5c:6a:4b:f7:f7 (RSA)
+|_  256 3c:8d:1c:3d:0d:03:30:a9:5c:ea:21:1f:34:f6:2b:ad (ECDSA)
+111/tcp open  rpcbind     2-4 (RPC #100000)
+| rpcinfo:
+|   program version   port/proto  service
+|   100000  2,3,4        111/tcp  rpcbind
+|   100000  2,3,4        111/udp  rpcbind
+|   100024  1          36825/udp  status
+|_  100024  1          56477/tcp  status
+139/tcp open  netbios-ssn Samba smbd 3.X (workgroup: HELLGATE)
+445/tcp open  netbios-ssn Samba smbd 3.X (workgroup: HELLGATE)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3.19 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.19, Linux 3.8 - 4.4
+Network Distance: 0 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: HELLGATE, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery:
+|   OS: Unix (Samba 4.1.6-Ubuntu)
+|   Computer name: hellgate
+|   NetBIOS computer name: HELLGATE
+|   Domain name:
+|   FQDN: hellgate
+|_  System time: 2016-05-20T20:53:33+02:00
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smbv2-enabled: Server supports SMBv2 protocol
+
+Post-scan script results:
+| ssh-hostkey: Possible duplicate hosts
+| Key 256 e0:7f:d5:74:aa:67:11:23:20:9e:b3:af:72:19:15:dd (ECDSA) used by:
+|   10.0.0.5
+|   10.0.0.10
+|   10.0.0.12
+| Key 1024 bb:60:44:16:01:5d:70:48:b5:7a:2e:bf:98:2e:44:9a (DSA) used by:
+|   10.0.0.5
+|   10.0.0.10
+|   10.0.0.12
+| Key 2048 2c:04:bb:1a:65:bb:2e:f3:84:d8:34:47:25:dc:de:35 (RSA) used by:
+|   10.0.0.5
+|   10.0.0.10
+|_  10.0.0.12
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (8 hosts up) scanned in 264.42 seconds
+
+

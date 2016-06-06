@@ -1,0 +1,8 @@
+Go to src directory.
+To compile:
+javac -cp "commons-codec-1.10.jar" HashCollider.java
+
+To run:
+java -cp commons-codec-1.10.jar:. HashCollider
+
+By default 4 bits collision is checked, to change this change corresponding variable (number_of_bits) in the source code.

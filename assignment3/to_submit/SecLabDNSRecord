@@ -1,0 +1,253 @@
+10.0.0.5 -> 10.0.0.10 : request to: net.cs.uni-bonn.de.
+###[ UDP ]###
+  sport     = 40479
+  dport     = domain
+  len       = 44
+  chksum    = 0xc25b
+###[ DNS ]###
+     id        = 38056
+     qr        = 0L
+     opcode    = QUERY
+     aa        = 0L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 0
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'net.cs.uni-bonn.de.'
+      |  qtype     = A
+      |  qclass    = IN
+     an        = None
+     ns        = None
+     ar        = None
+10.0.0.10 -> 10.0.0.5 : response from: net.cs.uni-bonn.de.
+###[ UDP ]###
+  sport     = domain
+  dport     = 40479
+  len       = 60
+  chksum    = 0xb69f
+###[ DNS ]###
+     id        = 38056
+     qr        = 1L
+     opcode    = QUERY
+     aa        = 1L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 1
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'net.cs.uni-bonn.de.'
+      |  qtype     = A
+      |  qclass    = IN
+     \an        \
+      |###[ DNS Resource Record ]###
+      |  rrname    = 'net.cs.uni-bonn.de.'
+      |  type      = A
+      |  rclass    = IN
+      |  ttl       = 86400
+      |  rdlen     = 4
+      |  rdata     = '131.220.242.41'
+     ns        = None
+     ar        = None
+10.0.0.5 -> 10.0.0.10 : request to: net.cs.uni-bonn.de.
+###[ UDP ]###
+  sport     = 53885
+  dport     = domain
+  len       = 44
+  chksum    = 0x6e40
+###[ DNS ]###
+     id        = 46181
+     qr        = 0L
+     opcode    = QUERY
+     aa        = 0L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 0
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'net.cs.uni-bonn.de.'
+      |  qtype     = A
+      |  qclass    = IN
+     an        = None
+     ns        = None
+     ar        = None
+10.0.0.10 -> 10.0.0.5 : response from: net.cs.uni-bonn.de.
+###[ UDP ]###
+  sport     = domain
+  dport     = 53885
+  len       = 60
+  chksum    = 0x6284
+###[ DNS ]###
+     id        = 46181
+     qr        = 1L
+     opcode    = QUERY
+     aa        = 1L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 1
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'net.cs.uni-bonn.de.'
+      |  qtype     = A
+      |  qclass    = IN
+     \an        \
+      |###[ DNS Resource Record ]###
+      |  rrname    = 'net.cs.uni-bonn.de.'
+      |  type      = A
+      |  rclass    = IN
+      |  ttl       = 86400
+      |  rdlen     = 4
+      |  rdata     = '131.220.242.41'
+     ns        = None
+     ar        = None
+10.0.0.5 -> 10.0.0.10 : request to: pink.
+###[ UDP ]###
+  sport     = 50834
+  dport     = domain
+  len       = 30
+  chksum    = 0x8798
+###[ DNS ]###
+     id        = 50017
+     qr        = 0L
+     opcode    = QUERY
+     aa        = 0L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 0
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'pink.'
+      |  qtype     = A
+      |  qclass    = IN
+     an        = None
+     ns        = None
+     ar        = None
+10.0.0.10 -> 10.0.0.5 : response from: pink.
+###[ UDP ]###
+  sport     = domain
+  dport     = 50834
+  len       = 46
+  chksum    = 0xe7d5
+###[ DNS ]###
+     id        = 50017
+     qr        = 1L
+     opcode    = QUERY
+     aa        = 1L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 1
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'pink.'
+      |  qtype     = A
+      |  qclass    = IN
+     \an        \
+      |###[ DNS Resource Record ]###
+      |  rrname    = 'pink.'
+      |  type      = A
+      |  rclass    = IN
+      |  ttl       = 86400
+      |  rdlen     = 4
+      |  rdata     = '10.0.0.13'
+     ns        = None
+     ar        = None
+10.0.0.5 -> 10.0.0.10 : request to: pink.
+###[ UDP ]###
+  sport     = 49642
+  dport     = domain
+  len       = 30
+  chksum    = 0x8683
+###[ DNS ]###
+     id        = 51486
+     qr        = 0L
+     opcode    = QUERY
+     aa        = 0L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 0
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'pink.'
+      |  qtype     = A
+      |  qclass    = IN
+     an        = None
+     ns        = None
+     ar        = None
+10.0.0.10 -> 10.0.0.5 : response from: pink.
+###[ UDP ]###
+  sport     = domain
+  dport     = 49642
+  len       = 46
+  chksum    = 0xe6c0
+###[ DNS ]###
+     id        = 51486
+     qr        = 1L
+     opcode    = QUERY
+     aa        = 1L
+     tc        = 0L
+     rd        = 1L
+     ra        = 0L
+     z         = 0L
+     rcode     = ok
+     qdcount   = 1
+     ancount   = 1
+     nscount   = 0
+     arcount   = 0
+     \qd        \
+      |###[ DNS Question Record ]###
+      |  qname     = 'pink.'
+      |  qtype     = A
+      |  qclass    = IN
+     \an        \
+      |###[ DNS Resource Record ]###
+      |  rrname    = 'pink.'
+      |  type      = A
+      |  rclass    = IN
+      |  ttl       = 86400
+      |  rdlen     = 4
+      |  rdata     = '10.0.0.13'
+     ns        = None
+     ar        = None
+

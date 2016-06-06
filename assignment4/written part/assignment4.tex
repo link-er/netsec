@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Assignment 4}
+\author{Abbas Khan , Mariia Rybalka , Linara Adilova}
+\begin{document}
+\maketitle 
+    
+\section*{Task 4.4 (theoretical): TLS Cipher Suites}
+\subsection*{TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256}
+ECDHE - Cipher suites using authenticated ephemeral ECDH key agreement. the client and server will agree on encryption keys using Ephemeral Elliptic Curve Diffie-Hellman. 
+RSA - Cipher suites using RSA key exchange, authentication or either respectively. the client will verify that the key is valid using the RSA algorithm to communications.
+AES128 GCM - cipher suites using 128 bit AES. AES in Galois Counter Mode (GCM). the actual encryption of my web browsing session will be performed
+SHA256 - Ciphersuites using SHA256. the SHA algorithm will be used for securely hashing parts of the TLS messages.
+
+\begin{enumerate}
+\item Authentication: Elliptic curve Diffie-Hellman (ECDH) is an anonymous key agreement protocol that allows two parties, each having an elliptic curve public-private key pair, to establish a shared secret over an insecure channel. This shared secret may be directly used as a key, or to derive another key which can then be used to encrypt subsequent communications using a symmetric key cipher. It is a variant of the Diffie-Hellman protocol using elliptic curve cryptography. Ephemeral keys are temporary and not necessarily authenticated, so if authentication is desired, authenticity assurances must be obtained by other means.
+\item Encryption
+\item Integrity
+\end{enumerate}
+
+TLS RSA RC4 128 MD5
+
+\cite{label}
+
+\begin{thebibliography}{9}
+
+\bibitem{label}
+  Not forget
+  \emph{\url{https://en.wikipedia.org/wiki/Hash-based_message_authentication_code}}
+  WeLiveSecurity by ESET
+  
+  https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman
+  
+\end{thebibliography}
+
+\end{document} 

@@ -26,11 +26,11 @@ Received IP: 158.149.246.215
 \\Associated secret: Sniffing
 \end{itemize}
 
-
 \section*{Task 4.2 (theoretical): Message Authentication Code (MAC)}
-Since each $x_{i}$ is 64 bit , the resultant hash K will also be 64 bit.If a 64-bit hash is used, there are approximately 1.8 x 10$^{19}$ different outputs. If these are all equally probable (the best case), then it would take 'only' approximately 5 billion attempts( 5.1 x 10$^{9}$) to generate a collision using brute force. This value is called birthday bound and for n-bit codes it could be computed as 2$^{n}$/2\cite{birthday_attack}
+Since each $x_{i}$ is 64 bit, the resultant hash K will also be 64 bit. If a 64-bit hash is used, there are approximately $1.8 \times 10^{19}$ different outputs. If these are all equally probable (the best case), then it would take 'only' approximately 5 billion attempts ($5.1 \times 10^{9}$) to generate a collision using brute force. This value is called birthday bound and for n-bit codes it could be computed as $2^{n}/2$. \cite{birthday_attack}
+
 \section*{Task 4.3 (practical): Diffie-Hellman}
-Exploited - man in the middle (details)
+Exploited - man in the middle attack on Diffie-Hellman algorithm of key exchange. Script catches generator and prime number values, then sends her own key to both of the sides, thus getting shared secret with each of them. Afterwards it catches messages, decrypts them with corresponding key and decrypts again with the second one to send to the other side to get response on the message.
 \\
 Source code is in file \textbf{diffie\_hellman.py}.
 \\

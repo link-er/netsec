@@ -20,8 +20,7 @@ Received IP: 254.109.186.165
 
 
 \section*{Task 4.2 (theoretical): Message Authentication Code (MAC)}
-Abbas
-
+Since each $x_{i}$ is 64 bit , the resultant Hash K will also be 64 bit.if a 64-bit hash is used, there are approximately 1.8 × 10$^{19}$ different outputs. If these are all equally probable (the best case), then it would take 'only' approximately 5 billion attempts( 5.1 x 10$^{19}$) to generate a collision using brute force. This value is called birthday bound and for n-bit codes it could be computed as 2n/2\cite{birthday_attack}
 \section*{Task 4.3 (practical): Diffie-Hellman}
 Exploited - man in the middle (details)
 \\
@@ -66,6 +65,9 @@ Script is in file \textbf{ssl\_suits.sh}. Used list of top sites from Alexa Top 
 
 \begin{thebibliography}{9}
 
+\bibitem{birthday_attack}
+\emph{\url{https://en.wikipedia.org/wiki/Birthday_attack}}
+
 \bibitem{tls-ref}
   TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)
   \emph{\url{https://tools.ietf.org/html/rfc5289}}
@@ -85,6 +87,7 @@ Script is in file \textbf{ssl\_suits.sh}. Used list of top sites from Alexa Top 
   \emph{\url{http://saluc.engr.uconn.edu/refs/stream_cipher/mantin01attackRC4.pdf}}
   Itsik Mantin and Adi Shamir\\
   Computer Science Department, The Weizmann Institute, Rehovot 76100, Israel
+
   
 \end{thebibliography}
 

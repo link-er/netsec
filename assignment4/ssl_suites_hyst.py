@@ -1,9 +1,7 @@
 import matplotlib.pyplot as plt
 from collections import Counter
 
-suites = [line.rstrip('\n') for line in open('suites_openssl.txt')]
 usage = [line.rstrip('\n') for line in open('used_suites.txt')]
-
 cntr = Counter(usage)
 
 plt.rcParams.update({'font.size': 8})

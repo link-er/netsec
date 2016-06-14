@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Assignment 5}
+\author{Abbas Khan , Mariia Rybalka , Linara Adilova}
+\begin{document}
+\maketitle 
+
+\section*{Task 5.1 (theoretical): Block Cipher Based MACs}
+\subsection*{Part (a)}
+\begin{itemize}
+\item ECB gives encrypted with a shared secret blocks of a plain text. So basically this works as MAC for showing that the sender is the one, who knows shared secret and it can prove integrity because receiver can just decrypt the message and compare with received plain text. But by definition MAC has to be a short tag, and here it will be at best as long as the message itself. Also it is easily breakable because it saves the structure of the plaintext.
+\item CBC is usually used for generating MAC, by sending the last block. It will contain information about all the message and will be changed if the message is changed and also it will be encrypted by the shared secret, so it supports authenticity. The problem is with lots of known attacks, such as 
+\item CTR is better than CBC in means of possibility to parallelise calculations, but like with ECB we need the whole encryption to support integrity, because here again all the blocks are different. It supports authenticity  because of using shared secret for encryption. 
+\end{itemize}
+\subsection*{Part (b)}
+\begin{itemize}
+\item In ECB mode padding can make it even easier to find out the shared secret - if the last block will be a constant padding attacker can guess the structure of the padding and the key.
+\item In CBC mode padding adds ability to attack it also
+\item In CTR mode padding does not really change the situation, as we XOR last padded block with random counter and nonce.
+\end{itemize}
+
+\cite{tls-ref}
+
+\begin{thebibliography}{9}
+
+\bibitem{tls-ref}
+  TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)
+  \emph{\url{https://tools.ietf.org/html/rfc5289}}
+    
+\end{thebibliography}
+
+\end{document} 

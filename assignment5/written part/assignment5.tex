@@ -21,6 +21,40 @@
 \item In CTR mode padding does not really change the situation, as we XOR last padded block with random counter and nonce.
 \end{itemize}
 
+Given a secure block cipher, CBC-MAC is secure for fixed-length messages. However, by itself, it is not secure for variable-length messages. An attacker who knows the correct message-tag (i.e. CBC-MAC) pairs (m, t) and (m', t') can generate a third message m'' whose CBC-MAC will also be t'. This is simply done by XORing the first block of m' with t and then concatenating m with this modified m', i.e. by making m'' = m \| [(m_1' \oplus t) \| m_2' \| \dots \| m_x'].
+............
+Interaction  with  weak  ciphers. 
+Successive  blocks 
+ctr 
+and 
+ctr 
++
+1  usually  have  small  Hamming  difference.  This 
+has  lead  to  the  concern  that  an  attacker  can  obtain  many  plaintext  pairs  with  a  known  small  plaintext  difference, 
+which would facilitate the differential cryptanalysis.  However, this concern is  only valid if the underlying cipher is 
+differentially weak.  It is not the responsibility of a mode of operation to try to compensate (likely without success) 
+for  weaknesses  in  the  underlying block  cipher;  this  concern should  be  addressed when  designing the  block cipher. 
+Another concern we have heard is that since using a counter for the IV in CBC mode is a bad idea (see, e.g.,  [12]), 
+maybe CTR  mode itself is  suspect.  This is  just sloppy thinking;  the problem with using a  counter IV is  specific to 
+CBC mode, it has nothing to do with CTR mode.
+
+\section*{Task 5.2 (theoretical): RADIUS}
+From the traffic dump, taken during running 'authme' command, can be concluded that the hosts that take part in the authentication process as RADIUS server 10.0.0.10 (orange) and as RADIUS client 10.0.0.5 (white). I was able to found packets with protocol RADIUS, one is from 10.0.0.5 to 10.0.0.10 and one packet back. In the information about the packets I could find following:
+\begin{itemize}
+\item UDP packet, information concerned with RADIUS protocol: code of the packet is Access-Request, identifier of the packet and Authenticator code - random 128 bit string, used as salt for securing the password of the user, passed in the packet. Attribute Value Pairs in the packet are following: User-Name that has requested for authentication (plain text), User-Password in encrypted form, NAS-IP-Address (Network Access Server = NAS), NAS-Port, Message-Authenticator field.
+\item Also a UDP packet, with code Access-Accept and the same identifier as in the request packet. Also the Authenticator code is contained in it.
+\end{itemize}
+If try to send not existing username or wrong password, the code of the answer packet will be Access-Reject.
+\\
+Before RADIUS interaction 10.0.0.1 (hellgate) establishes TLS connection with Authenticator (RADIUS client), in our case 10.0.0.5 (white). This also can be seen from the traffic dump. Every time when 'authme' is run this connection will be established.
+
+\section*{Task 5.3 (practical): RADIUS}
+Data needed for brute-force attack on the shared secret is one Access-Request packet. As we know the password sent and we can get Authenticator code from the packet, we can use User-Password attribute for trying to find shared secret. User-Password attributed created as following (in case of password shorter than 16 octets): 
+$$zero_padded_password XOR MD5(secret || authenticator)$$
+We used just '0000000000000000' (16 zeros) as a password, in order to get needed length of the password - no need to pad it with zeros and split it to 16 octets (if password is longer than 16 octets process of securing is changed, password will be broken to chunks and encrypted in chain). So we take the dictionary (RFC 7511 as noted in hint) and try every word from it.
+\\
+Source code is in \textbf{break_radius.py}. Captured traffic is in \textbf{traffic_task2.pcap}. Found shared secret is \textbf{}.
+
 \cite{tls-ref}
 
 \begin{thebibliography}{9}

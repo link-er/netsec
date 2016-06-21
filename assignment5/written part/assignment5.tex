@@ -40,9 +40,11 @@ We used just '0000000000000000' (16 zeros) as a password, in order to get needed
 \\
 Source code is in \textbf{break\_radius.py}. Captured traffic is in \textbf{traffic\_task2.pcap}. Found shared secret is \textbf{}.
 
-
 \section *{Task 5.4 (practical): One-Time Pad}
-Functions to look at\\
+Linux kernel maintains an entropy pool, which it fills with environmental noise which it collects via device drivers or other sources.The problem is that once that entropy pool is used up /dev/random blocks until it can get more noise to fill up its entropy pool.
+One alternative can be /dev/urandom which uses CSPRNG which is seeded from the entropy pool. It does not suffer from blocks but is considered less secure compared to /dev/random.
+
+Following are the functions which perform the required tasks\\
 In server.java
 \begin{itemize}
 \item run() 
@@ -55,14 +57,13 @@ And for client
 \item sendActionPerformed
 \end{itemize}
 
-Please run server.java and than client.java.Type in the message in the lower textArea ,it will be encrypted and sent to the other , who in turn will decrypt it and the result will appear on the top textArea...
+Please run server.java and than client.java.Type in the message in the lower textArea ,it will be encrypted and sent to the other , who in turn will decrypt it and the result will appear on the top textArea.The code uses library which can be found in the libraries folder.
 
 \section *{Task 5.5 (practical): HMAC}
 We heard on the lecture that strength of HMAC depends on used hash function. We can use SHA-1 or SHA-256, and the key length will be 512 bits (64 bytes) (block size). If we use SHA-384 or SHA-512, we will need key of length 1024 bits (128 bytes), that is definitely overhead. But if SHA-1 and SHA-256 need the key of the same length, no need to peek weaker one. So our choice is SHA-256. By the way, even SHA-1 is stronger than MD5, so MD5 was not even a candidate.
 \\
 Our output is \\
 \textbf{d93292b2969aad6821c0f2dbaf7e4704672f27f45d39da9d763fbd956de3da6a}. Source code is in file \textbf{hmac.py}.
-
 
 \begin{thebibliography}{9}
 

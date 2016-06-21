@@ -7,3 +7,6 @@
 *.fdb_latexmk
 *.fls
 
+/assignment5/Question4/Chatting App/chat/build/
+/assignment5/Question4/Chatting App/chat/dist/
+/assignment5/Question4/Chatting App/chat/nbproject/private/

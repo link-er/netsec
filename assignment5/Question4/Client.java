@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package chat;
+
 import java.net.*;
 import java.io.*;
 import java.util.logging.Level;
@@ -25,18 +25,18 @@ public class Client extends javax.swing.JFrame implements Runnable {
         initComponents();
           try
                 {
-                      
+
                         s = new Socket("127.0.0.1", 1053);
                         br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                         bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
 			Thread th;
 			th = new Thread(this);
 			th.start();
-			
+
 		}catch(Exception e){}
-		
+
 	}
-        
+
     public void run()
     {
         String message;
@@ -134,7 +134,7 @@ public class Client extends javax.swing.JFrame implements Runnable {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
 
     private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
          try
@@ -143,19 +143,19 @@ public class Client extends javax.swing.JFrame implements Runnable {
             String message = Message.getText();
             int result;
             StringBuilder cypher = new StringBuilder();
-      
+
             for(int i=0;i<message.length();i++){
                 result = message.charAt(i) ^ random.charAt(i);
                 cypher.append((char)result);
             }
-            
+
              bw.write(cypher.toString());
              bw.newLine();
              bw.flush();
              Message.setText("");
         }catch(Exception e)
         {
-            
+
         }
     }//GEN-LAST:event_sendActionPerformed
 

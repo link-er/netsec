@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package chat;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.*;
@@ -24,7 +24,7 @@ public class server extends javax.swing.JFrame implements Runnable {
      */
     public server() {
         initComponents();
-        
+
         try{
            s1=new ServerSocket(1053);
            client=s1.accept();
@@ -32,15 +32,15 @@ public class server extends javax.swing.JFrame implements Runnable {
            bw=new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
            Thread th=new Thread(this);
            th.start();
-           
+
            //this.Message.setText("You are online");
        }
        catch(Exception e)
        {
-        //this.Message.setText(""+e);   
+        //this.Message.setText(""+e);
        }
-    
-        
+
+
     }
 public void run()
 {
@@ -59,14 +59,14 @@ public void run()
             for(int i=0;i<message.length();i++){
                 result = message.charAt(i) ^ random.charAt(i);
                 decypt.append((char)result);}
-            
+
                 System.err.println(decypt.toString());
-                Area.setText(decypt.toString());        
+                Area.setText(decypt.toString());
 }
 catch(Exception e){}
-    
+
             }
-    
+
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -161,16 +161,16 @@ catch(Exception e){}
         {
             message=Message.getText();
             random=getRandom(message.length());
-            
+
             PrintWriter writer = new PrintWriter("random.txt");
-            writer.println(random);    
+            writer.println(random);
             writer.close();
-            
-            
+
+
             System.err.println("server generated "+random);
             int result;
             StringBuilder cypher = new StringBuilder();
-      
+
             for(int i=0;i<message.length();i++){
                 result = message.charAt(i) ^ random.charAt(i);
                 cypher.append((char)result);
@@ -182,10 +182,10 @@ catch(Exception e){}
             Message.setText("");
         }catch(Exception e)
         {
-            
+
         }
-     
-        
+
+
     }//GEN-LAST:event_ChatActionPerformed
 
     private String getRandom(int number_of_bits) throws UnsupportedEncodingException, FileNotFoundException, IOException {
@@ -201,17 +201,17 @@ catch(Exception e){}
           }
           rn=resultBuilder.toString();
           return resultBuilder.toString();
-        } 
+        }
         finally {r.close();}
-          
-    
+
+
     }
-    
+
     public String returnRandom(){
         return rn;
     }
-    
-    
+
+
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         System.exit(1);
     }//GEN-LAST:event_ExitActionPerformed
@@ -219,12 +219,12 @@ catch(Exception e){}
     private void AreaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AreaAncestorAdded
 
     }//GEN-LAST:event_AreaAncestorAdded
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {

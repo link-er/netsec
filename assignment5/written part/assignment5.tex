@@ -38,7 +38,7 @@ Data needed for brute-force attack on the shared secret is one Access-Request pa
 $$zero\_padded\_password \ XOR \ MD5(secret \ || \ authenticator)$$
 We used just '0000000000000000' (16 zeros) as a password, in order to get needed length of the password - no need to pad it with zeros and split it to 16 octets (if password is longer than 16 octets process of securing is changed, password will be broken to chunks and encrypted in chain). So we take the dictionary (RFC 7511 as noted in hint) and try every word from it.
 \\
-Source code is in \textbf{break\_radius.py}. Captured traffic is in \textbf{traffic\_task2.pcap}. Found shared secret is \textbf{}.
+Source code is in \textbf{break\_radius.py}. Captured traffic is in \textbf{traffic\_task2.pcap}. Found shared secret is \textbf{}. But apparently it was not able to find the secret in the file =(.
 
 \section *{Task 5.4 (practical): One-Time Pad}
 Linux kernel maintains an entropy pool, which it fills with environmental noise which it collects via device drivers or other sources.The problem is that once that entropy pool is used up /dev/random blocks until it can get more noise to fill up its entropy pool.
@@ -57,7 +57,7 @@ And for client
 \item sendActionPerformed
 \end{itemize}
 
-Please run server.java and than client.java.Type in the message in the lower textArea ,it will be encrypted and sent to the other , who in turn will decrypt it and the result will appear on the top textArea.The code uses library which can be found in the libraries folder.
+Go to Question4 directory. To compile: "javac -cp "commons-io-2.5.jar" Client.java server.java". To run: "java -cp commons-io-2.5.jar:. Client" and "java -cp commons-io-2.5.jar:. server". Type in the message in the lower textArea, it will be encrypted and sent to the other, who in turn will decrypt it and the result will appear on the top textArea. Server should be run first and server should send the message first!
 
 \section *{Task 5.5 (practical): HMAC}
 We heard on the lecture that strength of HMAC depends on used hash function. We can use SHA-1 or SHA-256, and the key length will be 512 bits (64 bytes) (block size). If we use SHA-384 or SHA-512, we will need key of length 1024 bits (128 bytes), that is definitely overhead. But if SHA-1 and SHA-256 need the key of the same length, no need to peek weaker one. So our choice is SHA-256. By the way, even SHA-1 is stronger than MD5, so MD5 was not even a candidate.

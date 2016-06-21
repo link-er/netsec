@@ -16,7 +16,7 @@ in_file.close()
 def hmac(key, message):
     m = hashlib.sha1()
     block_size = m.block_size
-	key = ''.join(str(ord(c)) for c in key) #ASCII representation of a string
+    key = ''.join(str(ord(c)) for c in key) #ASCII representation of a string
     if len(key) > block_size: # if key is to large, make it block_size by hashing
         key = hashlib.sha1(key).digest()
     elif len(key) < block_size: # if key is too small, pas with leading zeros

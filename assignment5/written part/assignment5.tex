@@ -42,7 +42,10 @@ Source code is in \textbf{break\_radius.py}. Captured traffic is in \textbf{traf
 
 
 \section *{Task 5.4 (practical)}
-Functions to look at\\
+Linux kernel maintains a entropy pool ,which it fills with envirnmental noise which it collects via device drivers or other sources.The problem is that once that entropy pool is used up /dev/random blocks untill it can get more noise to fill up its entropy pool.
+One alternative can be /dev/urandom which uses CSPRNG which is seeded from the entropy pool.It doesnt suffer from blocks but is considered less secure compared to /dev/random.
+
+Following are the functions which perform the required tasks\\
 In server.java
 \begin{itemize}
 \item run() 

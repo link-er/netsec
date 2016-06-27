@@ -215,7 +215,7 @@ RFC 7511                     Scenic Routing                 1 April 2015
       The following BIT (A) defines if Avian IP Carriers should be used:
 
          0 - Don't use Avian IP Carrier links (maybe the packet is
-             afraid of pigeons).
+             afraid of pigeons ).
 
          1 - Avian IP Carrier links may be used.
 
